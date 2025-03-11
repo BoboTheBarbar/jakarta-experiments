@@ -4,18 +4,20 @@ import java.io.*;
 
 import com.colenio.jakartaeehelloworld2.control.MessageBean;
 import com.colenio.jakartaeehelloworld2.entity.Message;
-import jakarta.inject.Inject;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
-    @Inject
     MessageBean messageBean;
-
-    @Inject
     Message message;
 
+    public HelloServlet(Message message, MessageBean messageBean) {
+        this.message = message;
+        this.messageBean = messageBean;
+    }
+
+    @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 
