@@ -22,18 +22,24 @@ public class CarServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Specifcation specifcation = new Specifcation(Color.RED, EngineType.ELECTRIC);
-        Car newCar = renault.createCar(specifcation);
-
         response.setContentType("text/html");
 
         PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>Hello! This is your car!</h1>");
-        out.println("<h1>" + newCar.getIdentifier() + "</h1>");
-        out.println("<h1>" + newCar.getColor().name() + "</h1>");
-        out.println("<h1>" + newCar.getEngineType().name() + "</h1>");
-        out.println("</body></html>");
+        out.println(getCarHTML());
+    }
+
+    public String getCarHTML() {
+        Specifcation specifcation = new Specifcation(Color.RED, EngineType.ELECTRIC);
+        Car newCar = renault.createCar(specifcation);
+        String resultHtml = """
+                <html><body>
+                <h1>Hello! This is your car!</h1>
+                <h1> %s </h1>
+                <h1> %s </h1>
+                <h1> %s </h1>
+                </body></html>
+                """;
+        return resultHtml.formatted(newCar.getIdentifier(), newCar.getColor().name(), newCar.getEngineType().name());
     }
 
     @Override
