@@ -5,6 +5,7 @@ import jakarta.ejb.Stateless;
 @Stateless
 public class MessageBean {
     public String getMessage() {
-        return "Hello my friend!";
+        return "Hello bean!";
     }
 }
+
