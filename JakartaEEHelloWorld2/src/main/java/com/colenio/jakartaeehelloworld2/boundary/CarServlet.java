@@ -5,7 +5,6 @@ import com.colenio.jakartaeehelloworld2.entity.Color;
 import com.colenio.jakartaeehelloworld2.entity.EngineType;
 import com.colenio.jakartaeehelloworld2.entity.Specifcation;
 import jakarta.inject.Inject;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
