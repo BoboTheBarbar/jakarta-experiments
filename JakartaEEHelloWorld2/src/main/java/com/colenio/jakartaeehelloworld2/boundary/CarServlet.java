@@ -12,28 +12,32 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "helloCar", value = "/hello-car")
-public class HelloCar extends HttpServlet {
+public class CarServlet extends HttpServlet {
 
     @Inject
     CarManufacturer renault;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Specifcation specifcation = new Specifcation(Color.RED, EngineType.ELECTRIC);
         Car newCar = renault.createCar(specifcation);
+
+        response.setContentType("text/html");
+
+        PrintWriter out = response.getWriter();
+        out.println("<html><body>");
+        out.println("<h1>Hello! This is your car!</h1>");
+        out.println("<h1>" + newCar.getIdentifier() + "</h1>");
+        out.println("<h1>" + newCar.getColor().name() + "</h1>");
+        out.println("<h1>" + newCar.getEngineType().name() + "</h1>");
+        out.println("</body></html>");
     }
-
-    /** TODO:
-     * 1. Mit einem Car Manufacturer ein default car mit Specification bauen.
-     * 2. Mit einer Car Factory und einem repository den Manufacturer bauen.
-     * 3. Ausgabe in Boundary anpassen.
-     */
-
-
 
     @Override
     public void destroy() {
     }
 }
+
