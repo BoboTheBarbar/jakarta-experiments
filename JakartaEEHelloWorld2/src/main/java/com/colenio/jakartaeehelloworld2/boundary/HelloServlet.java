@@ -1,7 +1,9 @@
-package com.colenio.jakartaeehelloworld2;
+package com.colenio.jakartaeehelloworld2.boundary;
 
 import java.io.*;
 
+import com.colenio.jakartaeehelloworld2.control.MessageBean;
+import com.colenio.jakartaeehelloworld2.entity.Message;
 import jakarta.inject.Inject;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;

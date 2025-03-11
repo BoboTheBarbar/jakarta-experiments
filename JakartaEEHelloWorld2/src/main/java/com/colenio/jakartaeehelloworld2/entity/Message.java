@@ -1,9 +1,9 @@
-package com.colenio.jakartaeehelloworld2;
+package com.colenio.jakartaeehelloworld2.entity;
 
 public class Message {
     private String message;
 
-    Message(String message) {
+    public Message(String message) {
         this.message = message;
     }
 

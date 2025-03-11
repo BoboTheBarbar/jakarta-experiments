@@ -1,4 +1,4 @@
-package com.colenio.jakartaeehelloworld2;
+package com.colenio.jakartaeehelloworld2.control;
 
 import jakarta.ejb.Stateless;
 
