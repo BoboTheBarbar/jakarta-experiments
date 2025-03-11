@@ -16,8 +16,12 @@ import java.io.PrintWriter;
 @WebServlet(name = "helloCar", value = "/hello-car")
 public class CarServlet extends HttpServlet {
 
-    @Inject
     CarManufacturer renault;
+
+    @Inject
+    public CarServlet(CarManufacturer renault) {
+        this.renault = renault;
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
