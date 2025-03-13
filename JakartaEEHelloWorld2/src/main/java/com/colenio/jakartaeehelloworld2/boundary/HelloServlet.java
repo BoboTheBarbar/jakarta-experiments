@@ -13,8 +13,8 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
-    MessageBean messageBean;
-    Message message;
+    final MessageBean messageBean;
+    final Message message;
 
     @Inject
     public HelloServlet(Message message, MessageBean messageBean) {
@@ -35,6 +35,7 @@ public class HelloServlet extends HttpServlet {
         out.println("</body></html>");
     }
 
+    @Override
     public void destroy() {
     }
 }

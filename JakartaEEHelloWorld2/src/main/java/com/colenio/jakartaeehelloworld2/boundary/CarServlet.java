@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "helloCar", value = "/hello-car")
 public class CarServlet extends HttpServlet {
 
-    CarManufacturer renault;
+    final CarManufacturer renault;
 
     @Inject
     public CarServlet(CarManufacturer renault) {
