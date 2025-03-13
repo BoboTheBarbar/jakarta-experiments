@@ -49,4 +49,3 @@ public class CarServlet extends HttpServlet {
     public void destroy() {
     }
 }
-
