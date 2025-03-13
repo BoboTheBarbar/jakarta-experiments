@@ -1,8 +1,7 @@
 package com.colenio.jakartaeehelloworld2.boundary;
 
+import com.colenio.jakartaeehelloworld2.control.DefaultSpecificationExposer;
 import com.colenio.jakartaeehelloworld2.entity.Car;
-import com.colenio.jakartaeehelloworld2.entity.Color;
-import com.colenio.jakartaeehelloworld2.entity.EngineType;
 import com.colenio.jakartaeehelloworld2.entity.Specifcation;
 import jakarta.inject.Inject;
 import jakarta.servlet.annotation.WebServlet;
@@ -32,7 +31,7 @@ public class CarServlet extends HttpServlet {
     }
 
     public String getCarHTML() {
-        Specifcation specifcation = new Specifcation(Color.RED, EngineType.ELECTRIC);
+        Specifcation specifcation = DefaultSpecificationExposer.blackElectricSuperCar;
         Car newCar = renault.createCar(specifcation);
         String resultHtml = """
                 <html><body>
@@ -44,8 +43,5 @@ public class CarServlet extends HttpServlet {
                 """;
         return resultHtml.formatted(newCar.getIdentifier(), newCar.getColor().name(), newCar.getEngineType().name());
     }
-
-    @Override
-    public void destroy() {
-    }
+    
 }
