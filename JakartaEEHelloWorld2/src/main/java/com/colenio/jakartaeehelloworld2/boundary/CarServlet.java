@@ -43,5 +43,5 @@ public class CarServlet extends HttpServlet {
                 """;
         return resultHtml.formatted(newCar.getIdentifier(), newCar.getColor().name(), newCar.getEngineType().name());
     }
-    
+
 }
